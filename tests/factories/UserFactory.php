@@ -2,8 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use Illuminate\Support\Str;
+use Pine\Policy\Tests\User;
 use Faker\Generator as Faker;
-use Pine\Policy\Tests\Models\User;
 
 $factory->define(User::class, function (Faker $faker) {
     return [

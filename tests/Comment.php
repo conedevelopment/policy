@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\Translatable\Tests;
+namespace Pine\Policy\Tests;
 
 use Pine\Policy\UsesModelName;
 use Illuminate\Database\Eloquent\Model;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Pine\Policy\Tests\Models;
+namespace Pine\Policy\Tests;
 
 use Pine\Policy\UsesModelName;
 use Illuminate\Notifications\Notifiable;
