@@ -199,4 +199,6 @@ create(user)
 }
 ```
 
-###
+## Contribute
+
+If you found a bug or you have an idea connecting the package, feel free to open an issue.
