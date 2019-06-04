@@ -111,6 +111,7 @@ You may override the default key for the user. You can do that by passing a stri
 ## Using the policies and the Gate.js
 
 ### The available methods
+
 #### allow()
 
 The `allow()` accepts two parameter. The first is the action to perform, the second is the model object or the model type.
@@ -198,6 +199,41 @@ create(user)
     return user.is_admin;
 }
 ```
+
+## Examples
+
+### AJAX and Vue
+
+```js
+// app.js
+
+Gate.prototype.before = function () {
+    return this.user.id == 1;
+}
+
+Vue.prototype.$Gate = new Gate;
+
+Vue.component('posts', {
+    mounted() {
+        axios.get('/api/posts')
+            .then(response => this.posts = response.data);
+    },
+    data() {
+        return {
+            posts: [],
+        };
+    },
+    template: `
+        <ul><li v-for="post in posts" v-if="$Gate.allow('view', post)"></li></ul>
+        <button v-if="$Gate.allow('create', 'post')">Create post</button>
+    `
+});
+
+let app = new Vue({
+    //
+})
+```
+
 
 ## Contribute
 
