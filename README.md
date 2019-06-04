@@ -7,6 +7,8 @@ A nice tool for SPAs and front-end heavy applications.
 If you want to see behind the package, we suggest to read this post:
 [Implementing Laravel’s Authorization on the Front-End](https://pineco.de/implementing-laravels-authorization-front-end/).
 
+[Getting Started](#getting-started)
+
 ## Getting started
 
 You can install the package with composer, running the `composer require thepinecode/policy` command.
@@ -200,11 +202,10 @@ create(user)
 }
 ```
 
-## Examples
-
-### AJAX and Vue
+## Example
 
 ```js
+// app.js
 Vue.prototype.$Gate = new Gate;
 
 Vue.component('posts', {
@@ -226,6 +227,15 @@ Vue.component('posts', {
 let app = new Vue({
     //
 })
+```
+
+```html
+<body>
+<posts></posts>
+
+@currentUser
+<scirpt src="{{ asset('js/app.js') }}"></script>
+</body>
 ```
 
 
