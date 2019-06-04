@@ -3,13 +3,13 @@ export default class Gate
     /**
      * Initialize a new gate instance.
      *
-     * @param  {string}  key
+     * @param  {string|object}  user
      * @return {void}
      */
-    constructor(key = 'user')
+    constructor(user = 'user')
     {
         this.policies = {};
-        this.user = window[key];
+        this.user = typeof user === 'object' ? user : (window[user] || null);
 
         const files = require.context('./', true, /\Policy.js$/i);
         files.keys().map(key => {
@@ -26,7 +26,7 @@ export default class Gate
      */
     before()
     {
-        return !! this.user;
+        //
     }
 
     /**
@@ -44,7 +44,7 @@ export default class Gate
 
         let type = typeof model === 'object' ? model.model_name : model;
 
-        if (this.policies.hasOwnProperty(type) && typeof this.policies[type][action] === 'function') {
+        if (this.user && this.policies.hasOwnProperty(type) && typeof this.policies[type][action] === 'function') {
             return this.policies[type][action](this.user, typeof model === 'object' ? model : null);
         }
 
