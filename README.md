@@ -9,32 +9,22 @@ If you want to see behind the package, we suggest to read this post:
 
 ### Table of contents
 
-- [Getting Started](#getting-started)
-- [Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
-- [Using the policies and the Gate.js](#using-the-policies-and-the-gate-js)
-- [Example](#example)
-- [Contribute](#contribute)
+1. [Getting Started](#getting-started)
+2. [Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
+   - [Setting up the Gate.js](#setting-up-the-gate-js)
+3. [Using the policies and the Gate.js](#using-the-policies-and-the-gate-js)
+4. [Example](#example)
+5. [Contribute](#contribute)
 
 ## Getting started
 
 You can install the package with composer, running the `composer require thepinecode/policy` command.
 
-### Laravel 5.5 and up
-
-If you are using version 5.5 and up, there is nothing else to do.
 Since the package supports autodiscovery, Laravel will register the service provider automatically behind the scenes.
-
-#### Disable the autodiscovery for the package
 
 In some cases you may disable autodiscovery for this package.
 You can add the provider class to the `dont-discover` array to disable it.
-
 Then you need to register it manually again.
-
-### Laravel 5.4 and below
-
-You have to register the service provider manually.
-Go to the `config/app.php` file and add the `Pine\Policy\PolicyServiceProvider::class` to the providers array.
 
 ## Publishing and setting up the JavaScript library
 
@@ -237,10 +227,10 @@ let app = new Vue({
 
 ```html
 <body>
-<posts></posts>
+    <posts></posts>
 
-@currentUser
-<scirpt src="{{ asset('js/app.js') }}"></script>
+    @currentUser
+    <scirpt src="{{ asset('js/app.js') }}"></script>
 </body>
 ```
 
