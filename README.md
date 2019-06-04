@@ -110,6 +110,41 @@ You may override the default key for the user. You can do that by passing a stri
 
 ## Using the policies and the Gate.js
 
+### The available methods
+#### allow()
+
+The `allow()` accepts two parameter. The first is the action to perform, the second is the model object or the model type.
+
+```js
+gate.allow('view', model);
+
+gate.allow('create', 'comment');
+```
+
+#### deny()
+
+The `deny()` has the same signature like `allow()` but it will negate `allow()` return value.
+
+```js
+gate.deny('view', model);
+
+gate.deny('create', 'comment');
+```
+
+#### before()
+
+Like in Laravel, the before methods can provided to pass checks if special conditions are true.
+To use the `before()` method, you may extend the gate object and define your custom logic.
+
+```js
+Gate.prototype.before = function () {
+    return this.user.is_admin;
+}
+```
+
+> Please note, to use the `this` object correctly, use the traditional function signature
+> instead of the arrow functions.
+
 ### Adding the `UsesModelName` trait to the models
 
 Since, the policies will use real JSON shaped eloquent models, the models have to use the  `Pine\Policy\UsesModelName`
@@ -138,7 +173,30 @@ To make a policy, run the `php artisan make:js-policy Model` command, where the 
 php artisan make:js-policy Comment
 ```
 
-This command will create a file next to the `Gate.js` in the `resources/js/policies` directory.
+This command will create the `CommentPolicy.js` file next to the `Gate.js` in the `resources/js/policies` directory.
 
-This works very similarly like Laravel's policies. **The policies are registered automatically**.
+After you generated the policy files, run `npm` to compile all the policies.
+**The policies are registered automatically**. It means, no need for importing them manually.
 
+The gate instance will **automatically** populate the policies.
+Every policy will be used where it matches with the model's `model_name` attribute.
+
+### Writing the policy rules
+
+Policies – like in Laravel – have the following methods by default:
+`view`, `create`, `update`, `restore`, `delete` and `forceDelete`.
+Of course, they can be removed or new methods can be added to the policy.
+
+```js
+view(user, model)
+{
+    return user.id == model.user_id;
+}
+
+create(user)
+{
+    return user.is_admin;
+}
+```
+
+###
