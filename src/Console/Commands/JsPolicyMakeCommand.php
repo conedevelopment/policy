@@ -2,6 +2,7 @@
 
 namespace Pine\Policy\Console\Commands;
 
+use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
 
 class JsPolicyMakeCommand extends GeneratorCommand
@@ -63,7 +64,13 @@ class JsPolicyMakeCommand extends GeneratorCommand
     {
         $name = class_basename(str_replace('\\', '/', $name));
 
-        $stub = str_replace('{Class}', $name, $stub);
+        $model = Str::lower($name);
+
+        $stub = str_replace(
+            ['{Class}', '{model}'],
+            [$name, $model === 'user' ? 'model' : $model],
+            $stub
+        );
 
         return $this;
     }

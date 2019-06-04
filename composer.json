@@ -16,7 +16,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Pine\\Policy\\Test\\": "tests/"
+            "Pine\\Policy\\Tests\\": "tests/"
         }
     },
     "require": {

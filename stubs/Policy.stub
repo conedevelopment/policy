@@ -3,11 +3,11 @@ export default class {Class}Policy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  {object}  $user
-     * @param  {object}  model
+     * @param  {object}  user
+     * @param  {object}  {model}
      * @return {mixed}
      */
-    view(user, model)
+    view(user, {model})
     {
         //
     }
@@ -27,10 +27,10 @@ export default class {Class}Policy
      * Determine whether the user can update the model.
      *
      * @param  {object}  user
-     * @param  {object}  model
+     * @param  {object}  {model}
      * @return {mixed}
      */
-    update(user, model)
+    update(user, {model})
     {
         //
     }
@@ -39,10 +39,10 @@ export default class {Class}Policy
      * Determine whether the user can restore the model.
      *
      * @param  {object}  user
-     * @param  {object}  model
+     * @param  {object}  {model}
      * @return {mixed}
      */
-    restore(user, model)
+    restore(user, {model})
     {
         //
     }
@@ -51,10 +51,10 @@ export default class {Class}Policy
      * Determine whether the user can delete the model.
      *
      * @param  {object}  user
-     * @param  {object}  model
+     * @param  {object}  {model}
      * @return {mixed}
      */
-    delete(user, model)
+    delete(user, {model})
     {
         //
     }
@@ -63,10 +63,10 @@ export default class {Class}Policy
      * Determine whether the user can permanently delete the model.
      *
      * @param  {object}  user
-     * @param  {object}  model
+     * @param  {object}  {model}
      * @return {mixed}
      */
-    forceDelete(user, model)
+    forceDelete(user, {model})
     {
         //
     }
