@@ -1,0 +1,46 @@
+{
+    "name": "thepinecode/policy",
+    "description": "Using Laravel's authorization on the fron-end.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gergő D. Nagy",
+            "email": "hello@iamgergo.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pine\\Policy\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pine\\Policy\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php" : "^7.1"
+    },
+    "require-dev": {
+        "orchestra/testbench":"~3.8.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pine\\Policy\\PolicyServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability" : "dev",
+    "prefer-stable" : true
+}

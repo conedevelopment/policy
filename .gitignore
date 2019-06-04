@@ -1,0 +1,7 @@
+/vendor
+composer.phar
+composer.lock
+Thumbs.db
+/.idea
+/.vscode
+.phpunit.result.cache
