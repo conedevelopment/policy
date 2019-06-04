@@ -28,13 +28,13 @@ Then you need to register it manually again.
 You have to register the service provider manually.
 Go to the `config/app.php` file and add the `Pine\Policy\PolicyServiceProvider::class` to the providers array.
 
-## Publishing and using the JavaScript library
+## Publishing and setting up the JavaScript library
 
 By default the package provides a `Gate.js` file, that will handle the policies.
 Use the `php artisan vendor:publish` command and choose the `Pine\Policy\PolicyServiceProvider` provider.
 After publishing you can find your fresh copy in the `resources/js/policies` folder.
 
-### Using the Gate.js
+### Setting up the Gate.js
 
 Then you can import the `Gate` class and assign it to the `window` object.
 
@@ -107,4 +107,38 @@ You may override the default key for the user. You can do that by passing a stri
 ```
 
 > If there is no authenticated user, the value will be `null`.
+
+## Using the policies and the Gate.js
+
+### Adding the `UsesModelName` trait to the models
+
+Since, the policies will use real JSON shaped eloquent models, the models have to use the  `Pine\Policy\UsesModelName`
+trait that generates the proper model name, that will be used for identification by the `Gate.js`.
+
+```php
+use Pine\Policy\UsesModelName;
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+    use UsesModelName;
+
+    protected $appends = ['model_name'];
+}
+```
+
+> Please note, to be able to use this attribute on the front-end, the model attribute has to be appended to the JSON form.
+
+### Generating policies with artisan
+
+The package comes an artisan command by default, that helps you to generate your front-end policies easily.
+To make a policy, run the `php artisan make:js-policy Model` command, where the `Model` is the model's name.
+
+```sh
+php artisan make:js-policy Comment
+```
+
+This command will create a file next to the `Gate.js` in the `resources/js/policies` directory.
+
+This works very similarly like Laravel's policies. **The policies are registered automatically**.
 
