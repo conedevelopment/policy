@@ -9,7 +9,7 @@ class Comment extends Model
 {
     use UsesModelName;
 
-    protected $append = ['model_name'];
+    protected $appends = ['model_name'];
 
     protected $fillable = [
         'user_id',

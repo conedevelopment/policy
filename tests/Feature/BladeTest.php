@@ -4,9 +4,12 @@ namespace Pine\Policy\Tests\Feature;
 
 use Pine\Policy\Tests\User;
 use Pine\Policy\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class BladeTest extends TestCase
 {
+    use RefreshDatabase;
+
     protected $user;
 
     public function setUp(): void
