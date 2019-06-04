@@ -22,7 +22,7 @@ export default class Gate
     /**
      * Check if the user has a general perssion.
      *
-     * @return {bool}
+     * @return {bool|void}
      */
     before()
     {
