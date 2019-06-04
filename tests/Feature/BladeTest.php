@@ -26,6 +26,8 @@ class BladeTest extends TestCase
     /** @test */
     public function current_user_can_have_custom_key()
     {
-        $this->get('/policy/custom-key')->assertSee('window.admin = ');
+        $this->actingAs($this->user)
+            ->get('/policy/custom-key')
+            ->assertSee('window.admin = ' . $this->user->toJson());
     }
 }

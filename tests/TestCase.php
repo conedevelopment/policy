@@ -25,6 +25,8 @@ abstract class TestCase extends BaseTestCase
 
         $this->artisan('migrate', ['--database' => 'testing']);
 
+        $this->artisan('view:clear');
+
         View::addNamespace('policy', __DIR__ . '/views');
 
         Route::get('/policy/{view}', function ($view) {
