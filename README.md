@@ -7,11 +7,13 @@ A nice tool for SPAs and front-end heavy applications.
 If you want to see behind the package, we suggest to read this post:
 [Implementing Laravel’s Authorization on the Front-End](https://pineco.de/implementing-laravels-authorization-front-end/).
 
-[Getting Started](#getting-started)
-[Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
-[Using the policies and the Gate.js](#using-the-policies-and-the-gate-js)
-[Example](#example)
-[Contribute](#contribute)
+***
+
+- [Getting Started](#getting-started)
+- [Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
+- [Using the policies and the Gate.js](#using-the-policies-and-the-gate-js)
+- [Example](#example)
+- [Contribute](#contribute)
 
 ## Getting started
 
