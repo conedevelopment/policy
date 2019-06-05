@@ -191,6 +191,9 @@ php artisan make:js-policy Comment
 
 This command will create the `CommentPolicy.js` file next to the `Gate.js` in the `resources/js/policies` directory.
 
+> Note, the command will append the `Policy` automatically in the file name.
+> It means you may pass only the model name when running the command.
+
 After you generated the policy files, run `npm` to compile all the policies.
 
 ***
