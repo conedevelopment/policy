@@ -105,7 +105,7 @@ This does nothing more, but to print the currently authenticated user as `JSON` 
 @currentUser
 
 <!-- Result -->
-<script>window.user = { ... };</script>
+<script>window['user'] = { ... };</script>
 ```
 
 You may override the default key for the user. You can do that by passing a string to the blade directive.
@@ -114,7 +114,7 @@ You may override the default key for the user. You can do that by passing a stri
 @currentUser ('admin')
 
 <!-- Result -->
-<script>window.admin = { ... };</script>
+<script>window['admin'] = { ... };</script>
 ```
 
 > If there is no authenticated user, the value will be `null`.
