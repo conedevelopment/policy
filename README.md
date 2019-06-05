@@ -1,6 +1,6 @@
 # Policy
 
-Use Laravel's authorization with JavaScript.
+Using Laravel's authorization on the front-end.
 
 A nice tool for SPAs and front-end heavy applications.
 
