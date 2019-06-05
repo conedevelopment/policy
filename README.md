@@ -215,7 +215,7 @@ when calling `npm run dev`, `npm run prod` and so on.
 ### Writing the policy rules
 
 Policies – like in Laravel – have the following methods by default:
-`view`, `create`, `update`, `restore`, `delete` and `forceDelete`.
+`viewAny`, `view`, `create`, `update`, `restore`, `delete` and `forceDelete`.
 Of course, they can be removed or new methods can be added to the policy.
 
 ```js

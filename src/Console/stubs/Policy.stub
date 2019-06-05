@@ -1,6 +1,17 @@
 export default class {Class}Policy
 {
     /**
+     * Determine whether the user can view any models.
+     *
+     * @param  {object}  user
+     * @return mixed
+     */
+    viewAny(user)
+    {
+        //
+    }
+
+    /**
      * Determine whether the user can view the model.
      *
      * @param  {object}  user
