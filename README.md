@@ -38,7 +38,8 @@ Then you need to register it manually again.
 
 By default the package provides a `Gate.js` file, that will handle the policies.
 Use the `php artisan vendor:publish` command and choose the `Pine\Policy\PolicyServiceProvider` provider.
-After publishing you can find your fresh copy in the `resources/js/policies` folder.
+After publishing you can find your fresh copy in the `resources/js/policies` folder if you are using Laravel 5.7+.
+If your application is lower than 5.7, the JS will be published in the `resources/assets/js/policies`.
 
 ### Setting up the Gate.js
 
@@ -190,6 +191,7 @@ php artisan make:js-policy Comment
 ```
 
 This command will create the `CommentPolicy.js` file next to the `Gate.js` in the `resources/js/policies` directory.
+If you are using lower than Laravel 5.7, the policies will be generated in the `resources/assets/js/policies` directory.
 
 > Note, the command will append the `Policy` automatically in the file name.
 > It means you may pass only the model name when running the command.

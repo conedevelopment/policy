@@ -17,7 +17,10 @@ class PolicyServiceProvider extends ServiceProvider
     {
         // Publish the assets
         $this->publishes([
-            __DIR__ . '/../resources/js' => resource_path('js/policies'),
+            __DIR__ . '/../resources/js' => resource_path(
+                version_compare($this->app::VERSION, '5.7.0', '<')
+                ? 'assets/js/policies' : 'js/policies'
+            ),
         ]);
 
         // Register the commands
