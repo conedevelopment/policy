@@ -3,7 +3,6 @@
 namespace Pine\Policy\Console\Commands;
 
 use Illuminate\Support\Str;
-use Illuminate\Foundation\Application;
 use Illuminate\Console\GeneratorCommand;
 
 class JsPolicyMakeCommand extends GeneratorCommand
@@ -51,7 +50,7 @@ class JsPolicyMakeCommand extends GeneratorCommand
 
         $path = "{$this->laravel['path']}/../resources/js/policies/{$name}Policy.js";
 
-        if (version_compare(Application::VERSION, '5.7.0', '<')) {
+        if (version_compare(app()->version(), '5.7.0', '<')) {
             $path = "{$this->laravel['path']}/../resources/assets/js/policies/{$name}Policy.js";
         }
 
@@ -90,7 +89,7 @@ class JsPolicyMakeCommand extends GeneratorCommand
     {
         $name = class_basename(str_replace('\\', '/', $name));
 
-        if (version_compare(Application::VERSION, '5.7.0', '<')) {
+        if (version_compare(app()->version(), '5.7.0', '<')) {
             return "{$this->laravel['path']}/../resources/assets/js/policies/{$name}Policy.js";
         }
 
