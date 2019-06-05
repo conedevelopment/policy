@@ -11,7 +11,7 @@ export default class Gate
         this.policies = {};
         this.user = typeof user === 'object' ? user : (window[user] || null);
 
-        const files = require.context('./', true, /Policy\.js$/i);
+        const files = require.context('./', true, /Policy\.js$/);
         files.keys().map(key => {
             let name = key.split('/').pop().replace('Policy.js', '').toLowerCase();
             this.policies[name] = new (files(key).default);
