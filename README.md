@@ -201,7 +201,7 @@ Every policy will be used where it matches with the model's `model_name` attribu
 Based on
 [Laravel's default app.js](https://github.com/laravel/laravel/blob/master/resources/js/app.js#L19-L20)
 the Gate instance
-[registers the policies automatically](https://github.com/thepinecode/policy/blob/master/resources/js/Gate.js#L14-L19)
+[registers the policies automatically](https://github.com/thepinecode/policy/blob/master/resources/js/Gate.js#L14-L18)
 when calling `npm run dev`, `npm run prod` and so on.
 
 ***
