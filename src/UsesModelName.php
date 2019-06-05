@@ -13,8 +13,6 @@ trait UsesModelName
      */
     public function getModelNameAttribute()
     {
-        // $this->append('model_name');
-
         return Str::lower(class_basename(static::class));
     }
 }

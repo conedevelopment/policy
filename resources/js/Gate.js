@@ -14,7 +14,6 @@ export default class Gate
         const files = require.context('./', true, /\Policy.js$/i);
         files.keys().map(key => {
             let name = key.split('/').pop().replace('Policy.js', '').toLowerCase();
-
             this.policies[name] = new (files(key).default);
         });
     }
