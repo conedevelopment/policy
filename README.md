@@ -124,7 +124,8 @@ You may override the default key for the user. You can do that by passing a stri
 
 #### allow()
 
-The `allow()` accepts two parameter. The first is the action to perform, the second is the model object or the model type.
+The `allow()` accepts two parameter. The first is the action to perform,
+the second is the **model object** or the **model type**, like in Laravel.
 
 ```js
 gate.allow('view', model);
@@ -134,7 +135,7 @@ gate.allow('create', 'comment');
 
 #### deny()
 
-The `deny()` has the same signature like `allow()` but it will negate `allow()` return value.
+The `deny()` has the same signature like `allow()` but it will negate its return value.
 
 ```js
 gate.deny('view', model);
@@ -144,7 +145,9 @@ gate.deny('create', 'comment');
 
 #### before()
 
-Like in Laravel, the before methods can provided to pass checks if special conditions are true.
+Like in Laravel, in the `before()` method you can provide a custom logic to pass special conditions.
+If the condition passes, the rest of the checks in the `allow()` or `deny()` won't run at all.
+However if the condition fails, the policy rules will get place.
 To use the `before()` method, you may extend the gate object and define your custom logic.
 
 ```js
@@ -153,8 +156,8 @@ Gate.prototype.before = function () {
 }
 ```
 
-> Please note, to use the `this` object correctly, use the traditional function signature
-> instead of the arrow functions.
+> Please note, to use the `this` object correctly,
+> **use the traditional function signature instead of the arrow (() => {}) functions**.
 
 ### Adding the `UsesModelName` trait to the models
 
