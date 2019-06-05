@@ -192,7 +192,7 @@ After you generated the policy files, run `npm` to compile all the policies.
 
 ***
 
-#### Important
+#### Important!
 
 **The policies are registered automatically**. It means, no need for importing them manually.
 The gate instance will **automatically** populate the policies.
