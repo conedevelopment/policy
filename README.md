@@ -11,8 +11,8 @@ If you want to see behind the package, we suggest to read this post:
 
 1. [Getting Started](#getting-started)
 2. [Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
-   - [Setting up the Gate.js](#setting-up-the-gate-js)
-   - [Initializing a gate instance](#initializing-a-gate-instnace)
+   - [Setting up the Gate.js](#setting-up-the-gatejs)
+   - [Initializing a gate instance](#initializing-a-gate-instance)
    - [Passing the user to the gate instance](#passing-the-user-to-the-gate-instance)
    - [Using it as a Vue service](#using-it-as-a-vue-service)
    - [The @currentUser blade directive](#the-currentuser-blade-directive)
@@ -174,6 +174,8 @@ class Comment extends Model
 ```
 
 > Please note, to be able to use this attribute on the front-end, the model attribute has to be appended to the JSON form.
+> You can read more about appending values to JSON in the
+> [docs](https://laravel.com/docs/master/eloquent-serialization#appending-values-to-json).
 
 ### Generating policies with artisan
 
