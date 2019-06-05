@@ -12,7 +12,15 @@ If you want to see behind the package, we suggest to read this post:
 1. [Getting Started](#getting-started)
 2. [Publishing and setting up the JavaScript library](#publishing-and-setting-up-the-javascript-library)
    - [Setting up the Gate.js](#setting-up-the-gate-js)
+   - [Initializing a gate instance](#setting-up-the-gate-js)
+   - [Passing the user to the gate instance](#passing-the-user-to-the-gate-instance)
+   - [Using it as a Vue service](#using-it-as-a-vue-service)
+   - [The @currentUser blade directive](#the-currentuser-blade-directive)
 3. [Using the policies and the Gate.js](#using-the-policies-and-the-gate-js)
+   - [The available methods](#the-available-methods)
+   - [Adding the UsesModelName trait to the models](#adding-the-usesmodelname-trait-to-the-models)
+   - [Generating policies with artisan](#generating-policies-with-artisan)
+   - [Writing the policy rules](#writing-policy-rules)
 4. [Example](#example)
 5. [Contribute](#contribute)
 
@@ -61,6 +69,10 @@ let gate = new Gate('admin'); // window.admin
 
 let gate = new Gate({ ... }); // uses the custom object
 ```
+
+> Note, you can pass any object as a *user*.
+> If you pass a team or a group object, it works as well. Since you define the logic behind the `Gate`,
+> you can pass anything you wish.
 
 ### Using it as a Vue service
 
@@ -175,10 +187,22 @@ php artisan make:js-policy Comment
 This command will create the `CommentPolicy.js` file next to the `Gate.js` in the `resources/js/policies` directory.
 
 After you generated the policy files, run `npm` to compile all the policies.
-**The policies are registered automatically**. It means, no need for importing them manually.
 
+***
+
+#### Important
+
+**The policies are registered automatically**. It means, no need for importing them manually.
 The gate instance will **automatically** populate the policies.
 Every policy will be used where it matches with the model's `model_name` attribute.
+
+Based on
+[Laravel's default app.js](https://github.com/laravel/laravel/blob/master/resources/js/app.js#L19-L20)
+the Gate instance
+[registers the policies automatically](https://github.com/thepinecode/policy/blob/master/resources/js/Gate.js#L14-L19)
+when calling `npm run dev`, `npm run prod` and so on.
+
+***
 
 ### Writing the policy rules
 
@@ -187,6 +211,8 @@ Policies – like in Laravel – have the following methods by default:
 Of course, they can be removed or new methods can be added to the policy.
 
 ```js
+...
+
 view(user, model)
 {
     return user.id == model.user_id;
@@ -196,6 +222,8 @@ create(user)
 {
     return user.is_admin;
 }
+
+...
 ```
 
 ## Example
