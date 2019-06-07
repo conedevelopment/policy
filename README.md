@@ -61,12 +61,12 @@ let gate = new Gate;
 ### Passing the user to the gate instance
 
 The `Gate` object requires a passed user to work properly. This can be a `string` or an `object`.
-By default, it looks for the `window.user` object, however you may customize the key or the object itself.
+By default, it looks for the `window['user']` object, however you may customize the key or the object itself.
 
 ```js
-let gate = new Gate; // window.user
+let gate = new Gate; // window['user']
 
-let gate = new Gate('admin'); // window.admin
+let gate = new Gate('admin'); // window['admin']
 
 let gate = new Gate({ ... }); // uses the custom object
 ```
@@ -99,7 +99,7 @@ computed: {
 ### The @currentUser blade directive
 
 To make it quicker, the package comes with a `@currentUser` blade directive.
-This does nothing more, but to print the currently authenticated user as `JSON` and assing it to the `window` object.
+This does nothing more, but to print the currently authenticated user as `JSON` and assign it to the `window` object.
 
 ```html
 @currentUser
