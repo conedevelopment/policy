@@ -125,8 +125,8 @@ You may override the default key for the user. You can do that by passing a stri
 
 #### allow()
 
-The `allow()` accepts two parameter. The first is the action to perform,
-the second is the **model object** or the **model type**, like in Laravel.
+The `allow()` accepts two parameters. The first is the action to perform,
+the second is the **model object** or the **model name**, like in Laravel.
 
 ```js
 gate.allow('view', model);
@@ -146,8 +146,8 @@ gate.deny('create', 'comment');
 
 #### before()
 
-Like in Laravel, in the `before()` method you can provide a custom logic to pass special conditions.
-If the condition passes, the rest of the checks in the `allow()` or `deny()` won't run at all.
+Like in Laravel, in the `before()` method you can provide a custom logic to check for special conditions.
+If the condition passes, the rest of the policy rules in the `allow()` or `deny()` won't run at all.
 However if the condition fails, the policy rules will get place.
 To use the `before()` method, you may extend the gate object and define your custom logic.
 
@@ -162,8 +162,9 @@ Gate.prototype.before = function () {
 
 ### Adding the `UsesModelName` trait to the models
 
-Since, the policies will use real JSON shaped eloquent models, the models have to use the  `Pine\Policy\UsesModelName`
-trait that generates the proper model name, that will be used for identification by the `Gate.js`.
+Since, the policies use real JSON shaped eloquent models, the models have to use the  `Pine\Policy\UsesModelName`
+trait that generates the proper model name. This model name attribute is used for pairing the proper policy with 
+the model by the `Gate.js`.
 
 ```php
 use Pine\Policy\UsesModelName;
@@ -177,13 +178,13 @@ class Comment extends Model
 }
 ```
 
-> Please note, to be able to use this attribute on the front-end, the model attribute has to be appended to the JSON form.
+> Please note, to be able to use this attribute on the front-end, the attribute has to be appended to the JSON form.
 > You can read more about appending values to JSON in the
 > [docs](https://laravel.com/docs/master/eloquent-serialization#appending-values-to-json).
 
 ### Generating policies with artisan
 
-The package comes an artisan command by default, that helps you to generate your front-end policies easily.
+The package comes with an artisan command by default, that helps you to generate your JavaScript policies easily.
 To make a policy, run the `php artisan make:js-policy Model` command, where the `Model` is the model's name.
 
 ```sh
@@ -196,7 +197,7 @@ If you are using lower than Laravel 5.7, the policies will be generated in the `
 > Note, the command will append the `Policy` automatically in the file name.
 > It means you may pass only the model name when running the command.
 
-After you generated the policy files, run `npm` to compile all the policies.
+After you generated the policy files, use `npm` to compile all the JavaScript, including policies.
 
 ***
 
@@ -218,7 +219,7 @@ when calling `npm run dev`, `npm run prod` and so on.
 
 Policies – like in Laravel – have the following methods by default:
 `viewAny`, `view`, `create`, `update`, `restore`, `delete` and `forceDelete`.
-Of course, they can be removed or new methods can be added to the policy.
+Of course, you can use custom methods as well, policies are fully customizables.
 
 ```js
 ...
@@ -231,6 +232,11 @@ view(user, model)
 create(user)
 {
     return user.is_admin;
+}
+
+approve(user, model)
+{
+    return user.is_editor && user.id == model.user_id;
 }
 
 ...
