@@ -2,8 +2,8 @@
 
 namespace Pine\Policy\Tests;
 
-use Pine\Policy\UsesModelName;
 use Illuminate\Database\Eloquent\Model;
+use Pine\Policy\UsesModelName;
 
 class Comment extends Model
 {

@@ -2,11 +2,11 @@
 
 namespace Pine\Policy\Tests;
 
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
-use Pine\Policy\PolicyServiceProvider;
+use Illuminate\Support\Facades\View;
 use Orchestra\Database\ConsoleServiceProvider;
 use Orchestra\Testbench\TestCase as BaseTestCase;
+use Pine\Policy\PolicyServiceProvider;
 
 abstract class TestCase extends BaseTestCase
 {
@@ -16,18 +16,18 @@ abstract class TestCase extends BaseTestCase
 
         $this->loadMigrationsFrom([
             '--database' => 'testing',
-            '--realpath' => realpath(__DIR__ . '/migrations'),
+            '--realpath' => realpath(__DIR__.'/migrations'),
         ]);
 
         $this->loadLaravelMigrations(['--database' => 'testing']);
 
-        $this->withFactories(__DIR__ . '/factories');
+        $this->withFactories(__DIR__.'/factories');
 
         $this->artisan('migrate', ['--database' => 'testing']);
 
         $this->artisan('view:clear');
 
-        View::addNamespace('policy', __DIR__ . '/views');
+        View::addNamespace('policy', __DIR__.'/views');
 
         Route::get('/policy/{view}', function ($view) {
             return view("policy::{$view}");
@@ -41,7 +41,6 @@ abstract class TestCase extends BaseTestCase
         $app['config']->set('database.connections.testbench', [
             'driver'   => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
         ]);
     }
 

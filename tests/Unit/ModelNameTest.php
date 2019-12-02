@@ -2,9 +2,9 @@
 
 namespace Pine\Policy\Tests\Unit;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Pine\Policy\Tests\Comment;
 use Pine\Policy\Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ModelNameTest extends TestCase
 {

@@ -2,8 +2,8 @@
 
 namespace Pine\Policy\Console\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 
 class JsPolicyMakeCommand extends GeneratorCommand
 {

@@ -2,9 +2,9 @@
 
 namespace Pine\Policy\Tests\Feature;
 
-use Pine\Policy\Tests\User;
-use Pine\Policy\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Pine\Policy\Tests\TestCase;
+use Pine\Policy\Tests\User;
 
 class BladeTest extends TestCase
 {
@@ -24,13 +24,13 @@ class BladeTest extends TestCase
     {
         $this->actingAs($this->user)
             ->get('/policy/current-user')
-            ->assertSee("window['user'] = " . $this->user->toJson());
+            ->assertSee("window['user'] = ".$this->user->toJson());
     }
     /** @test */
     public function current_user_can_have_custom_key()
     {
         $this->actingAs($this->user)
             ->get('/policy/custom-key')
-            ->assertSee("window['admin'] = " . $this->user->toJson());
+            ->assertSee("window['admin'] = ".$this->user->toJson());
     }
 }
