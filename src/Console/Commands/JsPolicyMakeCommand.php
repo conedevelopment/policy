@@ -35,7 +35,7 @@ class JsPolicyMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../stubs/Policy.stub';
+        return __DIR__.'/../stubs/Policy.stub';
     }
 
     /**

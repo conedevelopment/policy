@@ -1,8 +1,9 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use Faker\Generator as Faker;
-use Pine\Policy\Tests\Comment;
+use Pine\Policy\Tests\Models\Comment;
 
 $factory->define(Comment::class, function (Faker $faker) {
     return [

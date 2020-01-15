@@ -14,17 +14,10 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom([
-            '--database' => 'testing',
-            '--realpath' => realpath(__DIR__.'/migrations'),
-        ]);
-
+        $this->loadMigrationsFrom(['--path' => realpath(__DIR__.'/migrations')]);
         $this->loadLaravelMigrations(['--database' => 'testing']);
-
         $this->withFactories(__DIR__.'/factories');
-
         $this->artisan('migrate', ['--database' => 'testing']);
-
         $this->artisan('view:clear');
 
         View::addNamespace('policy', __DIR__.'/views');
@@ -37,11 +30,7 @@ abstract class TestCase extends BaseTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('app.key', 'base64:tjr4OdXhohUfIUhfVeZcmg+psaPkfTaKgl9GuW1FjY8=');
-        $app['config']->set('database.default', 'testbench');
-        $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
-            'database' => ':memory:',
-        ]);
+        $app['config']->set('database.default', 'testing');
     }
 
     protected function getPackageProviders($app)

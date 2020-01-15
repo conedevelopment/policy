@@ -23,8 +23,8 @@
         "php" : "^7.1"
     },
     "require-dev": {
-        "orchestra/database": "~3.8.0",
-        "orchestra/testbench":"~3.8.0"
+        "orchestra/database": "~4.2.0",
+        "orchestra/testbench":"~4.5.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit"

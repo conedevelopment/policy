@@ -3,8 +3,8 @@
 namespace Pine\Policy\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Pine\Policy\Tests\Models\User;
 use Pine\Policy\Tests\TestCase;
-use Pine\Policy\Tests\User;
 
 class BladeTest extends TestCase
 {

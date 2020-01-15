@@ -2,8 +2,6 @@
 
 namespace Pine\Policy;
 
-use Illuminate\Support\Str;
-
 trait UsesModelName
 {
     /**
@@ -13,6 +11,6 @@ trait UsesModelName
      */
     public function getModelNameAttribute()
     {
-        return Str::lower(class_basename(static::class));
+        return strtolower(class_basename(static::class));
     }
 }
