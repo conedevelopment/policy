@@ -20,11 +20,12 @@
         }
     },
     "require": {
-        "php" : "^7.1"
+        "php" : "^7.2.5",
+        "laravel/framework": "^6.0|^7.0"
     },
     "require-dev": {
-        "orchestra/database": "~4.2.0",
-        "orchestra/testbench":"~4.5.0"
+        "orchestra/database": "~5.0.0",
+        "orchestra/testbench":"~5.0.0"
     },
     "scripts": {
         "test": "vendor/bin/phpunit"

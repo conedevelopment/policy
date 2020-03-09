@@ -24,13 +24,13 @@ class BladeTest extends TestCase
     {
         $this->actingAs($this->user)
             ->get('/policy/current-user')
-            ->assertSee("window['user'] = ".$this->user->toJson());
+            ->assertSee("window['user'] = ".$this->user->toJson(), false);
     }
     /** @test */
     public function current_user_can_have_custom_key()
     {
         $this->actingAs($this->user)
             ->get('/policy/custom-key')
-            ->assertSee("window['admin'] = ".$this->user->toJson());
+            ->assertSee("window['admin'] = ".$this->user->toJson(), false);
     }
 }
