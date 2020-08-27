@@ -127,6 +127,8 @@ You may override the default key for the user. You can do that by passing a stri
 
 The `allow()` accepts two parameters. The first is the action to perform,
 the second is the **model object** or the **model name**, like in Laravel.
+NB: **model name** should be a lower case of the actual model in Laravel. 
+Eg Comment becomes comment
 
 ```js
 gate.allow('view', model);
