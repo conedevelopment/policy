@@ -274,7 +274,7 @@ let app = new Vue({
     <posts></posts>
 
     @currentUser
-    <scirpt src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 ```
 
