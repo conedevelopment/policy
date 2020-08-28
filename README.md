@@ -28,9 +28,9 @@ If you want to see behind the package, we suggest to read this post:
 
 You can install the package with composer, running the `composer require thepinecode/policy` command.
 
-Since the package supports autodiscovery, Laravel will register the service provider automatically behind the scenes.
+Since the package supports auto-discovery, Laravel will register the service provider automatically behind the scenes.
 
-In some cases you may disable autodiscovery for this package.
+In some cases you may disable auto-discovery for this package.
 You can add the provider class to the `dont-discover` array to disable it.
 Then you need to register it manually again.
 
@@ -126,7 +126,8 @@ You may override the default key for the user. You can do that by passing a stri
 #### allow()
 
 The `allow()` accepts two parameters. The first is the action to perform, the second is the **model object** or the **model name**, like in Laravel.
-Note: **model name** should be a lower case version of the actual model name in Laravel: for example `Comment` becomes `comment`.
+
+> Note: **model name** should be a lower case version of the actual model name in Laravel: for example `Comment` becomes `comment`.
 
 ```js
 gate.allow('view', model);
