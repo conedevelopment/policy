@@ -2,23 +2,10 @@
 
 namespace Pine\Policy\Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Pine\Policy\Tests\Models\User;
 use Pine\Policy\Tests\TestCase;
 
 class BladeTest extends TestCase
 {
-    use RefreshDatabase;
-
-    protected $user;
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->user = factory(User::class)->create();
-    }
-
     /** @test */
     public function current_user_can_be_printed_via_blade_directive()
     {

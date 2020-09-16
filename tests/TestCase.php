@@ -2,42 +2,32 @@
 
 namespace Pine\Policy\Tests;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
-use Orchestra\Database\ConsoleServiceProvider;
-use Orchestra\Testbench\TestCase as BaseTestCase;
-use Pine\Policy\PolicyServiceProvider;
+use Pine\Policy\Tests\Factories\UserFactory;
 
-abstract class TestCase extends BaseTestCase
+class TestCase extends BaseTestCase
 {
+    use CreatesApplication, RefreshDatabase;
+
+    protected $user;
+
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->loadMigrationsFrom(['--path' => realpath(__DIR__.'/migrations')]);
-        $this->loadLaravelMigrations(['--database' => 'testing']);
-        $this->withFactories(__DIR__.'/factories');
-        $this->artisan('migrate', ['--database' => 'testing']);
-        $this->artisan('view:clear');
+        $this->user = UserFactory::new()->create();
+
+        // $this->app->afterResolving('migrator', function ($migrator) {
+        //     $migrator->path(__DIR__.'/migrations');
+        // });
 
         View::addNamespace('policy', __DIR__.'/views');
 
         Route::get('/policy/{view}', function ($view) {
             return view("policy::{$view}");
         });
-    }
-
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('app.key', 'base64:tjr4OdXhohUfIUhfVeZcmg+psaPkfTaKgl9GuW1FjY8=');
-        $app['config']->set('database.default', 'testing');
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            PolicyServiceProvider::class,
-            ConsoleServiceProvider::class,
-        ];
     }
 }

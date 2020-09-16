@@ -2,21 +2,18 @@
 
 namespace Pine\Policy\Tests\Unit;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Pine\Policy\Tests\Models\Comment;
+use Pine\Policy\Tests\Factories\CommentFactory;
 use Pine\Policy\Tests\TestCase;
 
 class ModelNameTest extends TestCase
 {
-    use RefreshDatabase;
-
     protected $comment;
 
     public function setUp(): void
     {
         parent::setUp();
 
-        $this->comment = factory(Comment::class)->create();
+        $this->comment = CommentFactory::new()->create();
     }
 
     /** @test */
