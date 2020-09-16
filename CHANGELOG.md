@@ -1,11 +1,15 @@
 # Changelog
 
-## v0.3.0 (2020-09-16)
+## v0.4.0 (2020-09-16)
 ### Added
 - Laravel 8 compatiblity
 
 ### Changed
 - Update test suite
+
+## v0.3.0 (2020-03-09)
+### Changed
+- Migrate tests, set minimum Laravel versions
 
 ## v0.2.0 (2020-01-15)
 ### Changed
